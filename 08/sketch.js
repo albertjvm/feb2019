@@ -8,8 +8,8 @@ let NOISE_SCALE = 200;
 let points;
 
 COLOURS = [
-  '#357edd',
-  '#ffd700',
+  'black',//#357edd',
+  'white',//'#ffd700',
 ];
 
 function setup() {

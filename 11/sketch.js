@@ -34,9 +34,12 @@ function draw() {
 
   let c1 = map(noise(frameCount / 720), 0, 1, 0, 720) % 360;
   let c2 = (c1 + 180) % 360;
-  background(c1, 75, 50);
-  fill(c2, 75, 50);
-  stroke(c2, 75, 50);
+  // background(c1, 75, 50);
+  // fill(c2, 75, 50);
+  // stroke(c2, 75, 50);
+  background('black');
+  fill('white');
+  stroke('white');
 
   drawPoints();
   if (frameCount % 200 === 0) {
