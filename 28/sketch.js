@@ -12,6 +12,8 @@ function setup() {
   HEIGHT = canvasContainer.offsetHeight;
   WIDTH = canvasContainer.offsetWidth;
   SIZE = Math.min(WIDTH, HEIGHT);
+  MARGIN = WIDTH / 30;
+  N = WIDTH / 25;
   strokeWeight(1);
   frameRate(60);
 

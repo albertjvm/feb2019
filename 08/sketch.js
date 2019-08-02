@@ -2,7 +2,7 @@ let WIDTH;
 let HEIGHT;
 let X = 100;
 let Y = 50;
-let MARGIN = 25;
+let MARGIN = 0;
 let NOISE_SCALE = 200;
 
 let points;
@@ -17,6 +17,7 @@ function setup() {
   createCanvas(canvasContainer.offsetWidth, canvasContainer.offsetHeight).parent('canvas-container');
   HEIGHT = canvasContainer.offsetHeight;
   WIDTH = canvasContainer.offsetWidth;
+  // MARGIN = WIDTH / 40;
   strokeWeight(3);
   frameRate(60);
 

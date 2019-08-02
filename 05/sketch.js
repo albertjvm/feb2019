@@ -1,6 +1,7 @@
 let WIDTH;
 let HEIGHT;
-let N = 35;
+let NX;
+let NY;
 let MARGIN = 50;
 let points = [];
 let COLOURS = [
@@ -12,14 +13,14 @@ let COLOURS = [
   // '#1899a8',
   '#357edd',
 ];
-let r;
 
 function setup() {
   let canvasContainer = document.getElementById("canvas-container");
   createCanvas(canvasContainer.offsetWidth, canvasContainer.offsetHeight).parent('canvas-container');
   HEIGHT = canvasContainer.offsetHeight;
   WIDTH = canvasContainer.offsetWidth;
-  r = (WIDTH - MARGIN / 2) / N - 7;
+  NY = HEIGHT / 30;
+  NX = WIDTH / 30;
   strokeWeight(7);
   frameRate(60);
   points = createGrid();
@@ -46,17 +47,16 @@ function draw() {
     translate(x, y);
     rotate(a);
     line(-l, -l, l, l);
-    // rect(-r/2, -r/2, r, r);
     pop();
   });
 }
 
 function createGrid() {
   const points = [];
-  for (let x = 0; x < N; x++) {
-    for (let y = 0; y < N; y++) {
-      const u = N <= 1 ? 0.5 : x / (N - 1);
-      const v = N <= 1 ? 0.5 : y / (N - 1);
+  for (let x = 0; x < NX; x++) {
+    for (let y = 0; y < NY; y++) {
+      const u = NX <= 1 ? 0.5 : x / (NX - 1);
+      const v = NY <= 1 ? 0.5 : y / (NY - 1);
 
       points.push({
         position: [ u, v ],

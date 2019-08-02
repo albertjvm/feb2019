@@ -17,8 +17,8 @@ function setup() {
 
   for (let i = 0; i < N; i++) {
     points.push([
-      Math.floor(Math.random() * SIZE),
-      Math.floor(Math.random() * SIZE),
+      Math.floor(Math.random() * WIDTH),
+      Math.floor(Math.random() * HEIGHT),
     ]);
   }
 
@@ -26,7 +26,7 @@ function setup() {
   push();
   noStroke();
   fill('black');
-  rect(0, 0, SIZE, SIZE);
+  rect(0, 0, WIDTH, HEIGHT);
   pop();
 
   noFill();
@@ -37,7 +37,7 @@ function draw() {
   push();
   noStroke();
   fill('black');
-  rect(0, 0, 2*SIZE, 2*SIZE);
+  rect(0, 0, 2*WIDTH, 2*HEIGHT);
   pop();
   
   noFill();
@@ -49,9 +49,9 @@ function draw() {
 function drawPoint([x, y]) {
   let m = [
     dist(0, 0, x, y),
-    dist(SIZE, 0, x, y),
-    dist(0, SIZE, x, y),
-    dist(SIZE, SIZE, x, y),
+    dist(WIDTH, 0, x, y),
+    dist(0, HEIGHT, x, y),
+    dist(WIDTH, HEIGHT, x, y),
   ].reduce((a, i) => Math.max(a, i));
   m = min(m, frameCount * 3);
 

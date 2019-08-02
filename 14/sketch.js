@@ -16,7 +16,7 @@ function setup() {
   createCanvas(canvasContainer.offsetWidth, canvasContainer.offsetHeight).parent('canvas-container');
   HEIGHT = canvasContainer.offsetHeight;
   WIDTH = canvasContainer.offsetWidth;
-  SIZE = Math.min(WIDTH, HEIGHT);
+  SIZE = Math.max(WIDTH, HEIGHT);
   strokeWeight(1);
   stroke('white');
   frameRate(60);
@@ -31,20 +31,20 @@ function draw() {
     let [n1, n2, n3, n4] = noise2(n / 50, frameCount / 60).map(x => lerp(-VARIANCE, VARIANCE, x));
 
     line(
-      SIZE/2, contain(MARGIN + n + n1, MARGIN, SIZE / 2), 
-      contain(SIZE/2 + n + n2, SIZE / 2, SIZE - MARGIN), SIZE/2,
+      WIDTH/2, contain(MARGIN + n + n1, MARGIN, HEIGHT / 2), 
+      contain(WIDTH/2 + n + n2, WIDTH / 2, WIDTH - MARGIN), HEIGHT/2,
     );
     line(
-      contain(SIZE/2 + n + n2, SIZE / 2, SIZE - MARGIN), SIZE/2,
-      SIZE/2, contain(SIZE - MARGIN - n + n3, SIZE/2, SIZE - MARGIN),
+      contain(WIDTH/2 + n + n2, WIDTH / 2, WIDTH - MARGIN), HEIGHT/2,
+      WIDTH/2, contain(HEIGHT - MARGIN - n + n3, HEIGHT/2, HEIGHT - MARGIN),
     );
     line(
-      SIZE/2, contain(SIZE - MARGIN - n + n3, SIZE/2, SIZE - MARGIN),
-      contain(SIZE/2 - n + n4, MARGIN, SIZE/2), SIZE/2,
+      WIDTH/2, contain(HEIGHT - MARGIN - n + n3, HEIGHT/2, HEIGHT - MARGIN),
+      contain(WIDTH/2 - n + n4, MARGIN, WIDTH/2), HEIGHT/2,
     );
     line(
-      contain(SIZE/2 - n + n4, MARGIN, SIZE/2), SIZE/2,
-      SIZE/2, contain(MARGIN + n + n1, MARGIN, SIZE / 2), 
+      contain(WIDTH/2 - n + n4, MARGIN, WIDTH/2), HEIGHT/2,
+      WIDTH/2, contain(MARGIN + n + n1, MARGIN, HEIGHT / 2), 
     );
 
   }
